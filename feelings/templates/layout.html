@@ -34,17 +34,15 @@
           <a class="navbar-brand" href="{% url 'home' %}">Feelings</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
             {% if not user.is_authenticated %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'users:login' %}">Login</a></li>
-                    <li><a href="#">Sign Up</a></li>
-                </ul>
+                <li><a href="{% url 'users:login' %}">Login</a></li>
+                <li><a href="#">Sign Up</a></li>
             {% else %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Record</a></li>
-                    <li><a href="{% url 'users:logout' %}">Logout</a></li>
-                </ul>
+                <li><a href="#">Record</a></li>
+                <li><a href="{% url 'users:logout' %}">Logout</a></li>
             {% endif %}
+            </ul>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
