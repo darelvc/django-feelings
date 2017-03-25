@@ -9,6 +9,7 @@ from django.http import HttpResponseRedirect
 from braces.views import SelectRelatedMixin
 
 from . import forms
+from . import models
 
 
 class Dashboard(
