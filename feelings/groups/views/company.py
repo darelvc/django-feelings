@@ -25,13 +25,15 @@ class Create(LoginRequiredMixin, SetHeadlineMixin, generic.CreateView):
 class Update(LoginRequiredMixin, SetHeadlineMixin, generic.UpdateView):
     form_class = forms.CompanyForm
     template_name = 'companies/form.html'
-    success_url = reverse_lazy('users:dashboard')
 
     def get_queryset(self):
         return self.request.user.companies.all()
 
     def get_headline(self):
         return f'Edit {self.object.name}'
+
+    def get_success_url(self):
+        return reverse('groups:companies:detail', kwargs={'slug': self.object.slug})
 
 
 class Detail(LoginRequiredMixin, generic.UpdateView):
