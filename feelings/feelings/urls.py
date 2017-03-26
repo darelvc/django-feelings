@@ -19,10 +19,12 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from thoughts import urls as thought_urls
 from users import urls as users_urls
+from groups import urls as groups_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^users/', include(users_urls, namespace='users')),
+    url(r'^groups/', include(groups_urls, namespace='groups')),
     url(r'^thoughts/', include(thought_urls, namespace='thoughts')),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='home')
 ]
