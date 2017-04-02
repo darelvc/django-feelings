@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf import settings
 
 from django.views.generic import TemplateView
 from thoughts import urls as thought_urls
@@ -28,3 +29,9 @@ urlpatterns = [
     url(r'^thoughts/', include(thought_urls, namespace='thoughts')),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='home')
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ]
