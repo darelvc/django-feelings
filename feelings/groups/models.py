@@ -52,4 +52,4 @@ class FamilyInvite(Invite):
 
 
 class CompanyInvite(Invite):
-    family = models.ForeignKey(Company, related_name='invites')
+    company = models.ForeignKey(Company, related_name='invites')
